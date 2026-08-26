@@ -497,10 +497,10 @@
     <div class="family-bar-inner">
       <span class="family-bar-label" data-i18n-text="{&quot;ko&quot;:&quot;CSCAM 기계사업부&quot;,&quot;en&quot;:&quot;CSCAM Machine Division&quot;}">CSCAM 기계사업부</span>
       <nav class="family-bar-nav" aria-label="사업부 바로가기">
-        <a href="../cscam-cnc/index.html">CNC Controller</a>
-        <a href="../cscam-lms/index.html">LMS Solution</a>
-        <a href="../cscam-3dp/index.html">3D PRINTER</a>
-        <a href="../cscam-engraving/index.html">LASER PATTERNING</a>
+        <a href="https://cnc.cscam.co.kr/">CNC Controller</a>
+        <a href="https://lms.cscam.co.kr/">LMS Solution</a>
+        <a href="https://3dp.cscam.co.kr/">3D PRINTER</a>
+        <a href="https://laser.cscam.co.kr/">LASER PATTERNING</a>
         <a href="#hero" class="active">MARKING MACHINE</a>
       </nav>
     </div>
@@ -1915,13 +1915,18 @@ function scrollToTop() {
 
 // Family site links: sibling folders on the same host/deployment.
 document.addEventListener("DOMContentLoaded", function() {
+  const isLocal = location.protocol === "file:";
   const familyLinks = document.querySelectorAll(".family-bar-nav a, .drawer a");
   familyLinks.forEach(link => {
     const text = link.textContent.trim().toUpperCase();
-    if (text.includes("3D PRINTER")) {
-      link.href = "../cscam-3dp/index.html";
+    if (text.includes("CNC")) {
+      link.href = isLocal ? "../cscam-cnc/index.html" : "https://cnc.cscam.co.kr/";
+    } else if (text.includes("LMS")) {
+      link.href = isLocal ? "../cscam-lms/index.html" : "https://lms.cscam.co.kr/";
+    } else if (text.includes("3D PRINTER")) {
+      link.href = isLocal ? "../cscam-3dp/index.html" : "https://3dp.cscam.co.kr/";
     } else if (text.includes("LASER") || text.includes("TEXTURING") || text.includes("ENGRAVING")) {
-      link.href = "../cscam-engraving/index.html";
+      link.href = isLocal ? "../cscam-engraving/index.html" : "https://laser.cscam.co.kr/";
     } else if (text.includes("MARKING")) {
       link.href = "#hero";
     }
