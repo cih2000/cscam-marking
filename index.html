@@ -50,7 +50,7 @@
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-    body { background: var(--bg); color: var(--text); font-family: var(--ff-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 100px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--ff-body); line-height: 1.6; -webkit-font-smoothing: antialiased; padding-top: 0; }
     img { max-width: 100%; display: block; }
     a { color: var(--cscam-blue); text-decoration: none; transition: color .2s; }
     a:hover { color: var(--accent); }
@@ -80,11 +80,11 @@
     /* header */
     header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-bottom: 1px solid #e2e6ec; z-index: 900; }
     .family-bar { background: #05080d; border-bottom: 1px solid rgba(255,255,255,.06); }
-    .family-bar-inner { max-width: var(--container); margin: 0 auto; padding: 0 32px; height: 32px; display: flex; align-items: center; justify-content: flex-end; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+    .family-bar-inner { max-width: var(--container); margin: 0 auto; padding: 0 32px; height: 34px; display: flex; align-items: center; justify-content: flex-end; gap: 8px; overflow-x: auto; scrollbar-width: none; }
     .family-bar-inner::-webkit-scrollbar { display: none; }
     .family-bar-label { font-family: var(--ff-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .14em; color: #4a5c78; margin-right: auto; white-space: nowrap; }
-    .family-bar-nav { display: flex; gap: 2px; white-space: nowrap; }
-    .family-bar-nav a, .family-bar-nav span { font-family: var(--ff-mono); font-size: 10px; font-weight: 600; letter-spacing: .02em; padding: 6px 12px; border-radius: 4px; color: #7488a6; transition: all .2s; }
+    .family-bar-nav { display: flex; align-items: center; gap: 3px; white-space: nowrap; }
+    .family-bar-nav a, .family-bar-nav span { font-family: var(--ff-mono); font-size: 9.5px; font-weight: 600; letter-spacing: .03em; padding: 6px 9px; border-radius: 4px; color: #7488a6; transition: all .2s; }
     .family-bar-nav a:hover { color: #fff; background: rgba(255,255,255,.06); }
     .family-bar-nav a.active { color: #fff; background: var(--cscam-blue); }
     .family-bar-nav span.disabled { color: #3a4556; cursor: not-allowed; }
@@ -120,21 +120,26 @@
     }
 
     /* hero */
-    #hero { min-height: 80vh; padding-top: 56px; padding-bottom: 56px; display: flex; align-items: center; position: relative; overflow:hidden; background: #0c1f14; color: #fff; }
+    #hero { min-height: 92vh; padding-top: calc(100px + 56px); padding-bottom: 56px; display: flex; align-items: center; position: relative; overflow:hidden; background: #0c1f14; color: #fff; }
     .hero-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
     .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(12, 31, 20, 0.62), rgba(12, 31, 20, 0.62)); z-index: 1; }
-    .hero-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
-    .hero-content { z-index: 2; position: relative; }
+    .hero-grid { width: 100%; display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+    .hero-content { z-index: 2; position: relative; max-width: 760px; }
+    .hero-kicker { padding: 6px 14px; border: 1px solid rgba(0,195,87,.38); background: rgba(12,31,20,.46); border-radius: 999px; backdrop-filter: blur(4px); color: var(--accent) !important; font-size: 13.5px; letter-spacing: .18em; }
     .hero-title { font-family: var(--ff-head); font-weight: 800; font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 24px; }
     .hero-title span { color: var(--accent); }
     .hero-title .hero-title-line { display: inline-block; font-size: clamp(16px, 4.1vw, 42px); white-space: nowrap; }
-    .hero-desc { color: var(--on-dark-dim); font-size: clamp(15px, 2vw, 17px); line-height: 1.7; margin-bottom: 36px; max-width: 580px; }
+    .hero-desc { color: var(--on-dark-dim); font-size: clamp(15px, 2vw, 17px); line-height: 1.7; margin: 0 0 36px; max-width: 620px; }
     .hero-links { display: flex; gap: 14px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-size: 14.5px; font-weight: 700; border-radius: 6px; transition: all .2s; }
     .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(0,195,87,.3); }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
     .btn-secondary { border: 1px solid rgba(255,255,255,.2); color: #fff; }
     .btn-secondary:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.4); }
+    @media (min-width: 961px) {
+      #hero { align-items: flex-start; }
+      #hero .hero-grid { margin-top: 53px; }
+    }
 
     /* mockup visual */
     .hero-visual { position: relative; z-index: 2; display: flex; justify-content: center; }
@@ -428,6 +433,50 @@
     .record-table td { border-bottom: 1px solid var(--line-soft); }
     .record-table tr:nth-child(even) td { background: var(--bg-alt); }
 
+    /* ────────────────────────────────────────
+       PRINT / PDF
+    ───────────────────────────────────────── */
+    @media print {
+      @page { size: A3 landscape; margin: 12mm 14mm; }
+
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* 고정 헤더·드로어·버튼 제거 */
+      header, .top-btn, .drawer, .drawer-overlay, .menu-btn { display: none !important; }
+      body { padding-top: 0 !important; }
+
+      /* 컨테이너 풀 폭 */
+      .container { max-width: 100% !important; padding: 0 6mm !important; }
+      .content-frame { max-width: 100% !important; }
+
+      /* 섹션 패딩 줄임 */
+      section { padding: 18mm 0 !important; }
+
+      /* 애니메이션 리셋 */
+      .reveal, .hero-fadein {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+
+      /* 히어로: 비디오 숨기고 배경색 유지, 높이 조정 */
+      #hero { min-height: 0 !important; padding: 24mm 0 !important; }
+      .hero-bg-video { display: none !important; }
+      .hero-bg-overlay { display: none !important; }
+
+      /* 마키 애니메이션 정지 */
+      .marquee-track { animation: none !important; }
+
+      /* 링크 색상 그대로 */
+      a { color: inherit !important; text-decoration: none !important; }
+
+      /* 페이지 나눔: 카드/행 중간 안 잘리도록만 (break-before 제어는 puppeteer 스크립트에 위임) */
+      .card, .stat-box, .process-step { page-break-inside: avoid; }
+    }
+
     /* contact form */
     .form-group { margin-bottom: 20px; }
     .form-group label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; color: var(--text-dim); }
@@ -447,7 +496,7 @@
       html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
       .container { padding: 0 20px; }
       .family-bar-label { display: none; }
-      .family-bar-inner { justify-content: center; padding: 0 10px; }
+      .family-bar-inner { justify-content: flex-start; padding: 0 12px; }
       section { padding: 60px 0; }
       section * { min-width: 0; }
       .hero-grid { grid-template-columns: 1fr; text-align: center; }
@@ -485,6 +534,25 @@
         height: 58px;
         margin: 0;
       }
+      .comparison-table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .comparison-table tbody {
+        display: table;
+        min-width: 620px;
+        width: 100%;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        word-break: keep-all;
+        overflow-wrap: break-word;
+      }
+      .stationary-system-grid .comparison-table tbody {
+        min-width: 0;
+      }
       section [style*="grid-template-columns"]:not(.workflow-flow):not(.marquee-track) { grid-template-columns: 1fr !important; }
       section [style*="padding: 32px"], section [style*="padding:32px"], section [style*="padding:40px"], section [style*="padding: 40px"] { padding-left: 20px !important; padding-right: 20px !important; }
     }
@@ -497,11 +565,12 @@
     <div class="family-bar-inner">
       <span class="family-bar-label" data-i18n-text="{&quot;ko&quot;:&quot;CSCAM 기계사업부&quot;,&quot;en&quot;:&quot;CSCAM Machine Division&quot;}">CSCAM 기계사업부</span>
       <nav class="family-bar-nav" aria-label="사업부 바로가기">
-        <a href="https://cnc.cscam.co.kr/">CNC Controller</a>
-        <a href="https://lms.cscam.co.kr/">LMS Solution</a>
-        <a href="https://3dp.cscam.co.kr/">3D PRINTER</a>
-        <a href="https://laser.cscam.co.kr/">LASER PATTERNING</a>
+        <a href="#">CNC CONTROLLER</a>
+        <a href="#">LMS SOLUTION</a>
+        <a href="#">3D PRINTER</a>
+        <a href="#">LASER PATTERNING</a>
         <a href="#hero" class="active">MARKING MACHINE</a>
+        <a href="#">SOFTWARE</a>
       </nav>
     </div>
   </div>
@@ -526,7 +595,7 @@
 
     <div style="display:flex;align-items:center;gap:14px;">
       <div class="header-utility">
-        <a class="brand-logo-link" href="https://cscam.co.kr/" aria-label="CSCAM 종합 홈페이지"><div class="brand-wordmark"><span style="font-weight:700;">CS</span><span style="font-weight:400;">CAM</span></div></a>
+        <a class="brand-wordmark brand-logo-link" href="https://cscam.co.kr/" aria-label="CSCAM 종합 홈페이지" style="text-decoration:none;"><span style="font-weight:700;">CS</span><span style="font-weight:400;">CAM</span></a>
         <div style="width:1px;height:36px;background:#e2e6ec;margin:0 4px;"></div>
         <div class="lang-switch">
           <a href="?lang=ko" class="lang-btn" data-lang="ko" style="text-decoration:none;">KR</a><span>·</span><a href="?lang=en" class="lang-btn" data-lang="en" style="text-decoration:none;">EN</a>
@@ -541,6 +610,14 @@
 
 <div class="drawer" id="drawer">
   <button type="button" class="close-btn" onclick="toggleDrawer()" aria-label="메뉴 닫기">✕</button>
+  <div style="display:flex;flex-wrap:wrap;gap:6px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.08);font-size:10.5px;font-weight:700;font-family:var(--ff-mono);">
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">CNC CONTROLLER</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">LMS SOLUTION</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">3D PRINTER</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">LASER PATTERNING</a>
+    <a href="#hero" onclick="toggleDrawer()" style="padding:5px 12px;border-radius:12px;color:#fff;background:var(--accent);">MARKING MACHINE</a>
+    <a href="#" style="padding:5px 12px;border-radius:12px;color:#94a3b8;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);">SOFTWARE</a>
+  </div>
   <a href="#hero" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;홈&quot;,&quot;en&quot;:&quot;Home&quot;}">홈</a>
   <a href="#software" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;스마트마킹&quot;,&quot;en&quot;:&quot;Smart Marking&quot;}">스마트마킹</a>
   <a href="#stationary" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;고정식마킹기&quot;,&quot;en&quot;:&quot;Stationary Marking Machine&quot;}">고정식마킹기</a>
@@ -548,7 +625,7 @@
   <a href="#records" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;납품실적&quot;,&quot;en&quot;:&quot;Track Record&quot;}">납품실적</a>
   <a href="#installations" onclick="toggleDrawer()" data-i18n-text="{&quot;ko&quot;:&quot;실증사례&quot;,&quot;en&quot;:&quot;Field Test Results&quot;}">실증사례</a>
   <div style="display:flex;align-items:center;gap:8px;margin-top:8px;padding-top:18px;border-top:1px solid var(--line-soft);">
-    <a class="brand-logo-link" href="https://cscam.co.kr/" aria-label="CSCAM 종합 홈페이지" style="display:flex;text-decoration:none;"><div class="brand-wordmark" style="display:flex;"><span style="font-weight:700;">CS</span><span style="font-weight:400;">CAM</span></div></a>
+    <div class="brand-wordmark" style="display:flex;"><span style="font-weight:700;">CS</span><span style="font-weight:400;">CAM</span></div>
     <div style="width:1px;height:22px;background:#e2e6ec;margin:0 4px;"></div>
     <div class="lang-switch">
       <a href="?lang=ko" class="lang-btn" data-lang="ko" style="text-decoration:none;">KR</a><span>·</span><a href="?lang=en" class="lang-btn" data-lang="en" style="text-decoration:none;">EN</a>
@@ -563,14 +640,14 @@
       <source src="images/hero/hero-bg-video.mp4" type="video/mp4">
     </video>
     <div class="hero-bg-overlay"></div>
-    <div class="container hero-grid content-frame" style="grid-template-columns: 1fr; text-align: center; justify-items: center;">
-      <div class="hero-content hero-fadein" style="display: flex; flex-direction: column; align-items: center;">
-        <span class="eyebrow" style="color:var(--accent); font-size:13.5px; letter-spacing:0.2em;" data-i18n-text="{&quot;ko&quot;:&quot;스마트 조선소 (Smart Shipyard)의 시작&quot;,&quot;en&quot;:&quot;The Beginning of Smart Shipyard&quot;}">스마트 조선소 (Smart Shipyard)의 시작</span>
-        <h1 class="hero-title" style="margin-bottom:20px; line-height:1.2;">조선소 전처리<br><span class="hero-title-line" data-i18n-text="{&quot;ko&quot;:&quot;고해상도 문자 및 2D Matrix Code 마킹시스템&quot;,&quot;en&quot;:&quot;High-Resolution Character &amp; 2D Matrix Code Marking System&quot;}">고해상도 문자 및 2D Matrix Code 마킹시스템</span></h1>
-        <p class="hero-desc copy-frame" data-i18n-text="{&quot;ko&quot;:&quot;설계 도면 데이터를 현장 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 시작점입니다.&quot;,&quot;en&quot;:&quot;Designs CAD data is marked directly on steel surfaces in real time, connecting pretreatment identification, tracking, and quality control into a single seamless data stream. This is the foundation of site digitalization for shipyard DX/AX implementation.&quot;}">설계 도면 데이터를 현장 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 시작점입니다.</p>
-        <div class="hero-links" style="justify-content: center;">
+    <div class="container hero-grid">
+      <div class="hero-content hero-fadein">
+        <span class="eyebrow hero-kicker" data-i18n-text="{&quot;ko&quot;:&quot;스마트 조선소 구현의 시작&quot;,&quot;en&quot;:&quot;The Starting Point for Smart Shipyard Implementation&quot;}">스마트 조선소 구현의 시작</span>
+        <h1 class="hero-title" style="margin-bottom:20px; line-height:1.2;" data-i18n-html="{&quot;ko&quot;:&quot;조선소 전처리 라인을 위한<br><span class='hero-title-line'>고해상도 문자·2D Matrix Code 마킹 시스템</span>&quot;,&quot;en&quot;:&quot;High-Resolution Character &amp; 2D Matrix Code Marking System<br><span class='hero-title-line'>for Shipyard Pretreatment Lines</span>&quot;}">조선소 전처리 라인을 위한<br><span class="hero-title-line">고해상도 문자·2D Matrix Code 마킹 시스템</span></h1>
+        <p class="hero-desc copy-frame" data-i18n-text="{&quot;ko&quot;:&quot;설계 도면 데이터를 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 출발점입니다.&quot;,&quot;en&quot;:&quot;Design drawing data is marked directly on steel surfaces in real time, connecting pretreatment identification, tracking, and quality control into a single data flow. This is the starting point for field datafication in shipyard DX/AX implementation.&quot;}">설계 도면 데이터를 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 출발점입니다.</p>
+        <div class="hero-links">
           <a href="#contact" class="btn btn-primary" data-i18n-text="{&quot;ko&quot;:&quot;도입상담신청&quot;,&quot;en&quot;:&quot;Request Consultation&quot;}">도입상담신청</a>
-          <a href="files/marking-machine-catalog.pdf" class="btn btn-secondary" download data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 다운로드&quot;,&quot;en&quot;:&quot;Download Catalog&quot;}">카탈로그 다운로드</a>
+          <a href="#contact" class="btn btn-secondary" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 문의&quot;,&quot;en&quot;:&quot;Catalog Inquiry&quot;}">카탈로그 문의</a>
         </div>
       </div>
     </div>
@@ -1486,7 +1563,7 @@
           </p>
           <div style="font-size:15px;color:var(--text-dim);">
             <div style="margin-bottom:12px;"><strong data-i18n-text="{&quot;ko&quot;:&quot;본사 및 마킹 기술본부 주소&quot;,&quot;en&quot;:&quot;HQ &amp; Marking Tech Center Address&quot;}">본사 및 마킹 기술본부 주소</strong></div>
-            <p style="font-family:var(--ff-mono);margin-bottom:20px;" data-i18n-text="{&quot;ko&quot;:&quot;광주광역시 광산구 평동산단로 239-15 (옥동)&quot;,&quot;en&quot;:&quot;239-15, Pyeongdongsandan-ro, Gwangsan-gu, Gwangju, Korea&quot;}">광주광역시 광산구 평동산단로 239-15 (옥동)</p>
+            <p style="font-family:var(--ff-mono);margin-bottom:20px;" data-i18n-text="{&quot;ko&quot;:&quot;전남광주특별시 광산구 평동산단로 239-15 (옥동)&quot;,&quot;en&quot;:&quot;239-15, Pyeongdongsandan-ro, Gwangsan-gu, Gwangju, Korea&quot;}">전남광주특별시 광산구 평동산단로 239-15 (옥동)</p>
             <div><strong data-i18n-text="{&quot;ko&quot;:&quot;기술영업 대표전화&quot;,&quot;en&quot;:&quot;Technical Sales Phone&quot;}">기술영업 대표전화</strong></div>
             <p style="font-size:22px;font-weight:700;color:var(--cscam-blue);font-family:var(--ff-mono);margin-bottom:20px;">062-946-1900</p>
             <div><strong data-i18n-text="{&quot;ko&quot;:&quot;기술영업 담당 이메일&quot;,&quot;en&quot;:&quot;Technical Sales Email&quot;}">기술영업 담당 이메일</strong></div>
@@ -1494,7 +1571,7 @@
           </div>
         </div>
         <div class="card" style="padding:40px;background:#fff;box-shadow:var(--glow);">
-          <form onsubmit="alert('준비 중인 상담 폼입니다. 우측 하단의 실시간 챗봇을 이용해 문의를 등록해 주세요!'); return false;">
+          <form onsubmit="alert(window.LANG === 'en' ? 'Your inquiry has been received. Our team will review it and contact you.' : '문의가 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.'); return false;">
             <div class="form-group">
               <label for="c_name" data-i18n-text="{&quot;ko&quot;:&quot;담당자 성함 / 회사명&quot;,&quot;en&quot;:&quot;Name / Company&quot;}">담당자 성함 / 회사명</label>
               <input type="text" id="c_name" class="form-control" placeholder="성함과 소속 회사명을 함께 적어주세요" required>
@@ -1522,7 +1599,7 @@
       <div style="color:#c4d1e6;">
         <div style="font-weight:700;font-size:16px;color:#fff;letter-spacing:.01em;margin-bottom:4px;" data-i18n-text="{&quot;ko&quot;:&quot;씨에스캠주식회사&quot;,&quot;en&quot;:&quot;CSCAM Co., Ltd.&quot;}">씨에스캠주식회사</div>
         <div style="font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-style:italic;font-size:15px;color:var(--accent);margin-bottom:16px;">MARKING MACHINE</div>
-        <p style="font-size:13px;line-height:1.7;max-width:380px;" data-i18n-text="{&quot;ko&quot;:&quot;피에조 잉크젯 제어 기술 기반의 고해상도 문자마킹기 및 주판 라인마킹 시스템을 자체 개발·공급합니다.&quot;,&quot;en&quot;:&quot;We independently develop and supply High-Resolution Marking Machines and Plate Line Marking Systems based on Piezo Inkjet Control technology.&quot;}">피에조 잉크젯 제어 기술 기반의 고해상도 문자마킹기 및 주판 라인마킹 시스템을 자체 개발·공급합니다.</p>
+        <p style="font-size:13px;line-height:1.7;max-width:380px;" data-i18n-text="{&quot;ko&quot;:&quot;피에조 잉크젯 제어 기술 기반의 고해상도 문자마킹기 및 주판 라인마킹 시스템을 공급합니다.&quot;,&quot;en&quot;:&quot;We supply High-Resolution Marking Machines and Plate Line Marking Systems based on Piezo Inkjet Control technology.&quot;}">피에조 잉크젯 제어 기술 기반의 고해상도 문자마킹기 및 주판 라인마킹 시스템을 공급합니다.</p>
       </div>
       <div>
         <h6 style="color:#fff;font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;margin-bottom:16px;" data-i18n-text="{&quot;ko&quot;:&quot;장비 구분&quot;,&quot;en&quot;:&quot;System Classification&quot;}">장비 구분</h6>
@@ -1545,18 +1622,18 @@
         </ul>
       </div>
       <div>
-        <h6 style="color:#fff;font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;margin-bottom:16px;" data-i18n-text="{&quot;ko&quot;:&quot;홍보 및 다운로드&quot;,&quot;en&quot;:&quot;Promotion &amp; Downloads&quot;}">홍보 및 다운로드</h6>
+        <h6 style="color:#fff;font-family:&quot;Space Grotesk&quot;,sans-serif;font-weight:600;font-size:13px;letter-spacing:.05em;margin-bottom:16px;" data-i18n-text="{&quot;ko&quot;:&quot;홍보 및 문의&quot;,&quot;en&quot;:&quot;Promotion &amp; Inquiry&quot;}">홍보 및 문의</h6>
         <ul style="list-style:none;padding:0;margin:0;">
           <li style="margin-bottom:8px;"><a href="#stationary-results" style="font-size:13px;color:#8fa3c3;text-decoration:none;" data-i18n-text="{&quot;ko&quot;:&quot;실제 마킹 사례&quot;,&quot;en&quot;:&quot;Actual Marking Examples&quot;}">실제 마킹 사례</a></li>
           <li style="margin-bottom:8px;"><a href="#records" style="font-size:13px;color:#8fa3c3;text-decoration:none;" data-i18n-text="{&quot;ko&quot;:&quot;납품 설치 실적&quot;,&quot;en&quot;:&quot;Supply and Installation Record&quot;}">납품 설치 실적</a></li>
-          <li style="margin-bottom:8px;"><a href="files/marking-machine-catalog.pdf" download style="font-size:13px;color:#8fa3c3;text-decoration:none;" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 다운로드&quot;,&quot;en&quot;:&quot;Download Catalog&quot;}">카탈로그 다운로드</a></li>
+          <li style="margin-bottom:8px;"><a href="#contact" style="font-size:13px;color:#8fa3c3;text-decoration:none;" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 문의&quot;,&quot;en&quot;:&quot;Catalog Inquiry&quot;}">카탈로그 문의</a></li>
           <li style="margin-bottom:8px;"><a href="#contact" style="font-size:13px;color:#8fa3c3;text-decoration:none;" data-i18n-text="{&quot;ko&quot;:&quot;제품(견적) 문의&quot;,&quot;en&quot;:&quot;Inquiry &amp; Quote&quot;}">제품(견적) 문의</a></li>
         </ul>
       </div>
     </div>
     <div style="display:flex;justify-content:space-between;align-items:center;padding-top:24px;font-size:12px;color:#6b7a94;flex-wrap:wrap;gap:12px;">
       <div data-i18n-text="{&quot;ko&quot;:&quot;© 2026 씨에스캠주식회사 (CSCAM Co., Ltd.) — Machine Division. All Rights Reserved.&quot;,&quot;en&quot;:&quot;© 2026 CSCAM Co., Ltd. — Machine Division. All Rights Reserved.&quot;}">© 2026 씨에스캠주식회사 (CSCAM Co., Ltd.) — Machine Division. All Rights Reserved.</div>
-      <div style="font-family:&quot;JetBrains Mono&quot;,monospace;letter-spacing:.06em;" data-i18n-text="{&quot;ko&quot;:&quot;본사 · 광주광역시 광산구 평동산단로 239-15 · 062-946-1900&quot;,&quot;en&quot;:&quot;HQ · 239-15, Pyeongdongsandan-ro, Gwangsan-gu, Gwangju, Korea · Tel: +82-62-946-1900&quot;}">본사 · 광주광역시 광산구 평동산단로 239-15 · 062-946-1900</div>
+      <div style="font-family:&quot;JetBrains Mono&quot;,monospace;letter-spacing:.06em;" data-i18n-text="{&quot;ko&quot;:&quot;본사 · 전남광주특별시 광산구 평동산단로 239-15 · 062-946-1900&quot;,&quot;en&quot;:&quot;HQ · 239-15, Pyeongdongsandan-ro, Gwangsan-gu, Gwangju, Korea · Tel: +82-62-946-1900&quot;}">본사 · 전남광주특별시 광산구 평동산단로 239-15 · 062-946-1900</div>
     </div>
   </div>
 </footer>
@@ -1566,7 +1643,7 @@
   .top-btn-marking {
     position: fixed;
     right: 36px;
-    bottom: 104px;
+    bottom: 28px;
     z-index: 190;
     width: 44px;
     height: 44px;
@@ -1583,6 +1660,9 @@
   .top-btn-marking:hover {
     background: var(--bg-alt);
     transform: translateY(-3px);
+  }
+  #ai-chatbot-widget {
+    display: none !important;
   }
 </style>
 <button type="button" class="top-btn-marking" onclick="scrollToTop()" aria-label="맨 위로">
@@ -1914,9 +1994,6 @@ function scrollToTop() {
 })();
 
 // Family site links: sibling folders on the same host/deployment.
-// Runs immediately if the DOM is already ready (not solely reliant on
-// DOMContentLoaded, which can already have fired by this point on some
-// pages), and re-applies once more on window 'load' as a safety net.
 function cscamApplyFamilyLinks() {
   const isLocal = location.protocol === "file:";
   const isGhPages = location.hostname === "cih2000.github.io";
@@ -1934,6 +2011,8 @@ function cscamApplyFamilyLinks() {
       link.href = isLocal ? "../cscam-engraving/index.html" : isGhPages ? GH + "/cscam-engraving/index.html" : "https://laser.cscam.co.kr/";
     } else if (text.includes("MARKING")) {
       link.href = "#hero";
+    } else if (text.includes("SOFTWARE")) {
+      link.href = isLocal ? "../cscam-sw/index.html" : isGhPages ? GH + "/cscam-sw/index.html" : "https://sw.cscam.co.kr/";
     }
   });
   const logoLinks = document.querySelectorAll(".brand-logo-link");

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSCAM 문자마킹 시스템 사업제안서</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    /* 크롬 인쇄 엔진 버그 우회를 위한 최상단 단독 페이지 크기 선언 */
+    @page {
+      size: A3 landscape;
+      margin: 0;
+    }
+
+    :root {
+      --primary: #0c3b1e;
+      --secondary: #2f4537;
+      --accent: #00c357;
+      --bg-dark: #0c1f14;
+      --bg-light: #f4faf6;
+      --line: rgba(0, 195, 87, 0.15);
+      --text-dark: #0c2114;
+      --text-light: #ffffff;
+      --text-mute: #718096;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #e2e8f0;
+      color: var(--text-dark);
+      line-height: 1.5;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* A3 가로 포인트 규격에 정확히 맞춘 고정형 슬라이드 레이아웃 (1190px * 840px) */
+    .slide-page {
+      width: 1190px;
+      height: 840px;
+      background: #ffffff;
+      margin: 40px auto;
+      padding: 50px 70px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+
+    /* 슬라이드 헤더 */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+
+    .slide-header .brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+    }
+
+    .slide-header .subject {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--secondary);
+    }
+
+    /* 슬라이드 본문 */
+    .slide-body {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* 슬라이드 푸터 */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      margin-top: 25px;
+      font-size: 11px;
+      color: var(--text-mute);
+    }
+
+    .slide-footer .copyright {
+      font-weight: 500;
+    }
+
+    .slide-footer .page-number {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* 표지 슬라이드 전용 */
+    .slide-page.cover-page {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 80px 100px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cover-content {
+      max-width: 90%;
+    }
+
+    .cover-eyebrow {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.25em;
+      margin-bottom: 25px;
+    }
+
+    .cover-title {
+      font-size: 44px;
+      font-weight: 900;
+      line-height: 1.35;
+      margin-bottom: 30px;
+      letter-spacing: -0.02em;
+    }
+
+    .cover-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: #c2e2d0;
+      line-height: 1.65;
+      margin-bottom: 50px;
+    }
+
+    .cover-meta {
+      font-size: 14px;
+      color: #8bbfa3;
+      border-top: 1px solid rgba(0, 195, 87, 0.25);
+      padding-top: 20px;
+      display: flex;
+      gap: 45px;
+    }
+
+    /* 공통 타이틀 스타일 */
+    .page-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 12px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+
+    .page-subtitle {
+      font-size: 15px;
+      color: var(--secondary);
+      margin-bottom: 30px;
+      font-weight: 400;
+    }
+
+    /* 격자 배치 */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+    }
+
+    /* 카드 */
+    .card {
+      background: var(--bg-light);
+      border: 1px solid var(--line);
+      padding: 22px;
+      border-radius: 6px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card-desc {
+      font-size: 13.5px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    /* 이미지 박스 */
+    .image-container {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .image-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-caption {
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 8px 15px;
+      font-size: 12.5px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* 표 형식 */
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 5px;
+    }
+
+    .spec-table th, .spec-table td {
+      border: 1px solid var(--line);
+      padding: 12px 18px;
+      text-align: left;
+      font-size: 13.5px;
+    }
+
+    .spec-table th {
+      background: var(--primary);
+      color: var(--text-light);
+      font-weight: 700;
+      width: 30%;
+    }
+
+    .spec-table td {
+      background: #ffffff;
+      color: var(--secondary);
+    }
+
+    .spec-table tr:nth-child(even) td {
+      background: var(--bg-light);
+    }
+
+    /* 리스트 */
+    .bullet-list {
+      list-style-type: none;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 14px;
+      font-size: 15px;
+      color: var(--secondary);
+      line-height: 1.5;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+      top: -2px;
+    }
+
+    /* 인쇄 시 A3 Landscape 용지 맞춤 최적화 */
+    @media print {
+      html, body {
+        background: #ffffff;
+        width: 1190px !important;
+        height: 840px !important;
+      }
+      .slide-page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        width: 1190px !important;
+        height: 840px !important;
+        border-radius: 0 !important;
+        padding: 50px 70px !important;
+      }
+      .slide-page.cover-page {
+        padding: 80px 100px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: 표지 (Cover) -->
+  <div class="slide-page cover-page">
+    <div class="cover-content">
+      <div class="cover-eyebrow">Smart Shipyard Solution</div>
+      <h1 class="cover-title">조선소 전처리 라인을 위한<br>고해상도 문자·2D Matrix Code 마킹 시스템</h1>
+      <p class="cover-desc">설계 도면 데이터를 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결하여 조선소 DX/AX를 구현합니다.</p>
+      <div class="cover-meta">
+        <div><strong>제안사:</strong> 씨에스캠 주식회사 (CSCAM)</div>
+        <div><strong>작성일:</strong> 2026년 8월</div>
+        <div><strong>대상:</strong> 조선업체 생산기술 및 운영 부서</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Before CSCAM (수작업의 한계) -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">01. 현장 수작업 마킹의 실태</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">아직도 현장에서 수작업으로 강재 데이터를 마킹하고 계십니까?</h2>
+      <p class="page-subtitle">도면 데이터를 작업자가 일일이 직접 판독하고 수기로 표기하는 방식은 잦은 기입 오류와 생산성 저하의 원인입니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>기입 오류 빈발:</strong> 수기 입력 및 작성 중 문자 혼동으로 오표기가 자주 발생합니다.</li>
+            <li><strong>생산성 병목 초래:</strong> 도면 데이터를 사람이 일일이 직접 읽고, 강재 위에 손으로 마크와 문자를 옮겨 적는 작업은 대표적인 현장 수작업 공정입니다.</li>
+            <li><strong>추적성 결여:</strong> 손글씨는 작업자마다 필체가 달라 가독성이 불균형하며 후공정 자동화(OCR/QR) 연동이 어렵습니다.</li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="image-container">
+            <img src="images/manual-1.jpg" alt="수작업 마킹 현장 1">
+            <div class="image-caption">강재 표면 수기 분필 마킹 작업</div>
+          </div>
+          <div class="image-container">
+            <img src="images/manual-3.jpg" alt="수작업 마킹 현장 2">
+            <div class="image-caption">부재 정보 수기 페인트 기입</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">02</div>
+    </div>
+  </div>
+
+  <!-- PAGE 3: 수작업 프로세스의 비효율성 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">01. 현장 수작업 마킹의 실태</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">단계별 수작업 마킹의 비효율적 업무 흐름</h2>
+      <p class="page-subtitle">현장 작업자의 수기 마킹 프로세스는 잦은 재작업과 휴먼 에러의 발생 가능성을 항상 내포하고 있습니다.</p>
+      <div class="grid-4">
+        <div class="card">
+          <div>
+            <div class="card-title" style="color:var(--text-mute); font-size: 14px;">01</div>
+            <div class="card-title">도면·작업지시 확인</div>
+          </div>
+          <p class="card-desc">작업자가 도면과 생산 지시서를 대조하며 마킹 대상 위치와 표기 정보를 직접 확인합니다.</p>
+        </div>
+        <div class="card">
+          <div>
+            <div class="card-title" style="color:var(--text-mute); font-size: 14px;">02</div>
+            <div class="card-title">강재 위치 확인</div>
+          </div>
+          <p class="card-desc">야드 또는 전처리 라인에서 강재 번호와 방향을 다시 확인하고 수작업 기준점을 잡습니다.</p>
+        </div>
+        <div class="card">
+          <div>
+            <div class="card-title" style="color:var(--text-mute); font-size: 14px;">03</div>
+            <div class="card-title">수기 마킹</div>
+          </div>
+          <p class="card-desc">문자, 기호, 가이드 정보를 사람이 직접 옮겨 적어 작업자 숙련도와 현장 조건의 영향을 받습니다.</p>
+        </div>
+        <div class="card">
+          <div>
+            <div class="card-title" style="color:var(--text-mute); font-size: 14px;">04</div>
+            <div class="card-title">재확인·수정</div>
+          </div>
+          <p class="card-desc">기입 누락이나 오기입 여부를 별도 확인해야 하며, 오류 발생 시 재작업과 공정 지연이 생깁니다.</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">03</div>
+    </div>
+  </div>
+
+  <!-- PAGE 4: With CSCAM (스마트 마킹 솔루션) -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">02. CSCAM 스마트 마킹 솔루션</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">데이터로 연결되는 스마트 자동 마킹 시스템</h2>
+      <p class="page-subtitle">디자인 및 정보 운영부서와의 협업을 통해 도면 데이터를 마킹 데이터로 자동 변환하고 실시간으로 표면에 인쇄합니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>자동 데이터 흐름 연동:</strong> 디자인 및 정보 운영부서와의 협업을 통해 도면 데이터를 마킹 데이터로 변환합니다.</li>
+            <li><strong>실시간 정보 확인:</strong> 실시간 마킹 상태 정보 확인부터 마킹 후 결과물 모니터링까지 이어지는 전사적 관리의 시작입니다.</li>
+            <li><strong>통합 추적 관리 지원:</strong> 절단 유도선 및 가이드 경계선뿐만 아니라 부재 식별용 문자와 스마트 코드를 자동화 연동합니다.</li>
+          </ul>
+        </div>
+        <div class="image-container">
+          <img src="images/theme_concept.png" alt="CSCAM 마킹 시스템 개념도">
+          <div class="image-caption">데이터 연동 기반 스마트 마킹 워크플로우</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">04</div>
+    </div>
+  </div>
+
+  <!-- PAGE 5: Smart Marking Results 01-02 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">02. CSCAM 스마트 마킹 솔루션</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">실제 스마트 마킹 적용 결과 (문자 & 바코드)</h2>
+      <p class="page-subtitle">수작업 대비 압도적인 해상도와 정밀도로 철판 표면에 데이터를 직접 인쇄하여 후공정 OCR 연동을 지원합니다.</p>
+      <div class="grid-2">
+        <div class="image-container">
+          <img src="images/stationary_result_full_marker.png" alt="강재 식별 문자 자동 마킹">
+          <div class="image-caption">Result 01. 선명한 강재 식별 정보 및 정렬 마크 자동 인쇄</div>
+        </div>
+        <div class="image-container">
+          <img src="images/stationary_result_yard_marking.png" alt="부재/강재 AR-CODE 자동 마킹">
+          <div class="image-caption">Result 02. 절단 및 정렬용 가이드 라인 및 정보 정밀 매핑</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">05</div>
+    </div>
+  </div>
+
+  <!-- PAGE 6: Smart Marking Results 03-04 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">02. CSCAM 스마트 마킹 솔루션</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">모바일 장비 및 스캔 연동을 위한 대형 마크 적용</h2>
+      <p class="page-subtitle">고대비 2D 바코드를 표면에 자동 인쇄하여 후공정에서 리더기나 태블릿 스캔 한 번으로 즉각 도면 정보가 조회됩니다.</p>
+      <div class="grid-2">
+        <div class="image-container">
+          <img src="images/stationary_result_small_marking.png" alt="ARCODE 마킹 적용">
+          <div class="image-caption">Result 03. 부재 관리용 가독성 우수한 ARCODE 마킹</div>
+        </div>
+        <div class="image-container">
+          <img src="images/stationary_result_ink_dry_stack.png" alt="QRCODE 마킹 적용">
+          <div class="image-caption">Result 04. 태블릿 스캔 연동을 위한 고정밀 QRCODE 마킹</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">06</div>
+    </div>
+  </div>
+
+  <!-- PAGE 7: CSCAM M-Software -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">03. CSCAM 제어 및 운용 소프트웨어</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">CSCAM M-Software: 지능형 데이터 변환 및 설비 제어</h2>
+      <p class="page-subtitle">도면 정보 추출과 마킹 최적화 패스(Path) 연산 엔진이 탑재되어 마킹 전 과정을 제어하는 핵심 솔루션입니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>지능형 변환 연산 엔진:</strong> CAD 데이터에서 도면 정보를 분석하고 마킹 최적화 패스(Path)를 계산합니다.</li>
+            <li><strong>전 과정 관리 시뮬레이션:</strong> 마킹 동작 전 소프트웨어 인터페이스 상에서 작업 경로를 시뮬레이션하고 에러를 감지합니다.</li>
+            <li><strong>자동 관리 모듈 탑재:</strong> 갠트리 제어와 연동하여 실시간 마킹 상태와 자동 노즐 보정 관리를 총괄 제어합니다.</li>
+          </ul>
+        </div>
+        <div class="image-container">
+          <img src="images/software.png" alt="M-Software 제어 인터페이스">
+          <div class="image-caption">지능형 툴패스 시뮬레이터 및 마킹 상태 모니터링 화면</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">07</div>
+    </div>
+  </div>
+
+  <!-- PAGE 8: 고정식 마킹 시스템 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">04. 제품 라인업 - 고정식 마킹기</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">고해상도 고정식 문자마킹 시스템</h2>
+      <p class="page-subtitle">선박 전처리 강판 컨베이어 라인 상단에 영구 고정되어 통과하는 플레이트 전체 또는 중앙 ID를 정밀 마킹합니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>고정식 전체 마킹기 (Full Surface Type):</strong> 갠트리 프레임 전체에 마킹 헤드를 배열하여 강재 플레이트 폭 전체(최대 5,000mm)를 한 번에 커버합니다. 부재 식별용 글자와 가공/소부재 선까지 자동 분할 표기합니다.</li>
+            <li><strong>고정식 ID 마킹기 (Central ID Type):</strong> 강재 플레이트의 중앙 또는 지정된 일부 라인(유효폭 1,120mm, 협의 가능)에 핵심 식별 ID 문자 및 2D 코드를 콤팩트하게 마킹합니다.</li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="image-container">
+            <img src="images/stationary_full.png" alt="고정식 전체 마킹기">
+            <div class="image-caption">고정식 전체 마킹기 실물</div>
+          </div>
+          <div class="image-container">
+            <img src="images/stationary_id.png" alt="고정식 ID 마킹기">
+            <div class="image-caption">고정식 ID 마킹기 실물</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">08</div>
+    </div>
+  </div>
+
+  <!-- PAGE 9: 판넬 이동형 마킹기 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">04. 제품 라인업 - 이동식 마킹기</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">판넬 이동형 마킹 시스템</h2>
+      <p class="page-subtitle">갠트리 레일 위를 자동 주행하며 대형 주판(Panel) 위에 조립 유도선 및 문자 마킹을 고속으로 수행합니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>광역 자동 주행 제어:</strong> 야드 크기에 맞춰 설계된 레일식 갠트리 프레임 위에서 5축 서보 구동을 통한 광역 스캔 제어를 수행합니다.</li>
+            <li><strong>복합 인쇄 기술:</strong> 두께감 있는 유도 라인 마킹 모듈과 고해상도 정보 문자 피에조 헤드 복합 제어가 적용됩니다.</li>
+            <li><strong>검증된 스마트 코드:</strong> 삼성중공업 판넬라인 등에서 공인 테스트를 마친 AR-CODE / QR-CODE 마킹 검증이 완료되었습니다.</li>
+          </ul>
+        </div>
+        <div class="grid-2">
+          <div class="image-container">
+            <img src="images/panel_mobile_1.png" alt="이동형 마킹기 실사 1">
+            <div class="image-caption">이동형 마킹기 판넬 작동 전경 A</div>
+          </div>
+          <div class="image-container">
+            <img src="images/panel_mobile_2.png" alt="이동형 마킹기 실사 2">
+            <div class="image-caption">이동형 마킹기 판넬 작동 전경 B</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">09</div>
+    </div>
+  </div>
+
+  <!-- PAGE 10: 제품 제원 (Specifications) -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">05. 제품 상세 제원</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">고정식 및 이동식 마킹 시스템 핵심 제원 명세</h2>
+      <p class="page-subtitle">공정 요건에 부합하는 사양으로 구성된 시스템 라인업을 제공합니다.</p>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>구분 및 사양 항목</th>
+            <th>고정식 전체 마킹기 (Full Surface)</th>
+            <th>고정식 ID 마킹기 (Central ID)</th>
+            <th>이동식 판넬 마킹기 (Mobile Panel)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>마킹 헤드 구성</strong></td>
+            <td>17세트 (피에조 노즐단 총 68개)</td>
+            <td>4세트 (피에조 노즐단 총 16개)</td>
+            <td>라인 노즐 및 피에조 헤드 복합 구성</td>
+          </tr>
+          <tr>
+            <td><strong>유효 마킹폭/영역</strong></td>
+            <td>최대 5,000 mm</td>
+            <td>최대 1,120 mm (협의 가능)</td>
+            <td>대형 조립 주판 전체 영역 (예: 30m x 30m)</td>
+          </tr>
+          <tr>
+            <td><strong>주요 주행 제어</strong></td>
+            <td>라인 컨베이어 속도 무인 연동</td>
+            <td>컨베이어 연동 콤팩트 제어</td>
+            <td>랙앤피니언 고정밀 서보 동기화 구동</td>
+          </tr>
+          <tr>
+            <td><strong>주요 활용 사이트</strong></td>
+            <td>대형 선박 전처리 강판 인라인</td>
+            <td>강판 중심 관리 번호 및 2D 마킹</td>
+            <td>삼성중공업 판넬라인 자동 마킹 시스템</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">10</div>
+    </div>
+  </div>
+
+  <!-- PAGE 11: 국내외 납품 실적 및 구축 현황 -->
+  <div class="slide-page">
+    <div class="slide-header">
+      <div class="brand">CSCAM MARKING SYSTEM</div>
+      <div class="subject">06. 구축 사례 및 납품 실적</div>
+    </div>
+    <div class="slide-body">
+      <h2 class="page-title">국내외 주요 대형 조선소 및 중공업 실증 납품 실적</h2>
+      <p class="page-subtitle">수년 간의 혹독한 야외 철판 공정 및 진동 가혹 조건에서 연속 가동 성능을 입증받았습니다.</p>
+      <div class="grid-2">
+        <div>
+          <ul class="bullet-list">
+            <li><strong>삼성중공업 판넬라인:</strong> 판넬 이동형 마킹기 자동 마킹 시스템 구축 및 성능 검증 완료.</li>
+            <li><strong>HD현대중공업:</strong> 고정식 문자마킹 시스템 연속 운용 설치 및 실증 완료.</li>
+            <li><strong>사우디 IMI 중공업:</strong> 글로벌 대형 조선소 전처리 라인 고정식 문자마킹 시스템 해외 납품 완료.</li>
+          </ul>
+        </div>
+        <div class="image-container">
+          <img src="images/stationary_operation_01.png" alt="실제 구축 현장 전경">
+          <div class="image-caption">대형 조선소 전처리 야드 설치 및 연속 구동 실증</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer">
+      <div class="copyright">CSCAM Corporation All Rights Reserved.</div>
+      <div class="page-number">11</div>
+    </div>
+  </div>
+
+  <!-- PAGE 12: 뒤표지 및 문의 (Back Cover) -->
+  <div class="slide-page cover-page" style="background: var(--primary); align-items: center; justify-content: center; text-align: center;">
+    <div class="cover-content" style="max-width: 80%;">
+      <div class="cover-eyebrow" style="color:var(--accent);">THANK YOU</div>
+      <h1 class="cover-title" style="font-size: 42px; margin-bottom: 30px;">씨에스캠 주식회사</h1>
+      <p class="cover-desc" style="font-size: 17px; margin-bottom: 50px; color:#c2e2d0;">제품 도입 및 상세 사양 조율 등 문의 사항은 기술영업본부로 연락 바랍니다.</p>
+      <div style="font-size: 14px; color: #a3c4b0; line-height: 1.8; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 30px; font-family: monospace;">
+        <p><strong>본사 및 마킹 기술본부 주소:</strong> 광주광역시 광산구 평동산단로 239-15 (옥동)</p>
+        <p><strong>기술영업 대표전화:</strong> 062-946-1900 | <strong>기술영업 담당 이메일:</strong> skbang@cscam.co.kr</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
