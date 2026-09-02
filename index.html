@@ -122,6 +122,8 @@
     /* hero */
     #hero { min-height: 92vh; padding-top: calc(100px + 56px); padding-bottom: 56px; display: flex; align-items: center; position: relative; overflow:hidden; background: #0c1f14; color: #fff; }
     .hero-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .hero-poster-hold { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 1; animation: heroPosterOut .5s ease 1s forwards; pointer-events: none; }
+    @keyframes heroPosterOut { to { opacity: 0; } }
     .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(12, 31, 20, 0.62), rgba(12, 31, 20, 0.62)); z-index: 1; }
     .hero-grid { width: 100%; display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
     .hero-content { z-index: 2; position: relative; max-width: 760px; }
@@ -636,9 +638,22 @@
 <main>
   <!-- HERO -->
   <section id="hero">
-    <video class="hero-bg-video" autoplay muted loop playsinline poster="images/hero_bg.png">
+    <video id="heroBgVideo" class="hero-bg-video" autoplay muted loop playsinline poster="images/hero_bg.png">
       <source src="images/hero/hero-bg-video.mp4" type="video/mp4">
     </video>
+    <img class="hero-poster-hold" src="images/hero_bg.png" alt="">
+    <script>
+      (function(){
+        var v = document.getElementById('heroBgVideo');
+        if (!v) return;
+        v.addEventListener('timeupdate', function(){
+          v.playbackRate = (v.currentTime < 2) ? 0.5 : 1;
+        });
+        v.addEventListener('play', function(){
+          if (v.currentTime < 2) v.playbackRate = 0.5;
+        });
+      })();
+    </script>
     <div class="hero-bg-overlay"></div>
     <div class="container hero-grid">
       <div class="hero-content hero-fadein">
