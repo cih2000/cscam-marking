@@ -731,9 +731,13 @@
           <p class="section-sub copy-frame" style="margin-bottom:36px;" data-i18n-text="{&quot;ko&quot;:&quot;도면 데이터를 사람이 일일이 직접 읽고, 강재 위에 손으로 마크와 문자를 옮겨 적는 작업. 잦은 기입 오류와 생산성 병목이 발생하는 대표적인 현장 수작업 공정입니다.&quot;,&quot;en&quot;:&quot;A manual process where operators read drawing data and transcribe marks or characters onto steel plates by hand. This leads to frequent transcription errors and productivity bottlenecks.&quot;}">
             도면 데이터를 사람이 일일이 직접 읽고, 강재 위에 손으로 마크와 문자를 옮겨 적는 작업. 잦은 기입 오류와 생산성 병목이 발생하는 대표적인 현장 수작업 공정입니다.
           </p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;">
-            <img src="images/manual/manual-1.jpg" alt="현장 수작업 마킹 1" style="width:100%;border-radius:12px;border:1px solid var(--line);box-shadow: var(--glow);">
-            <img src="images/manual/manual-3.jpg" alt="현장 수작업 마킹 3" style="width:100%;border-radius:12px;border:1px solid var(--line);box-shadow: var(--glow);">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px;align-items:start;">
+            <div style="overflow:hidden;border-radius:12px;border:1px solid var(--line);box-shadow:var(--glow);aspect-ratio:1000/1066;">
+              <img src="images/manual/manual-1.jpg" alt="현장 수작업 마킹 1" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div style="overflow:hidden;border-radius:12px;border:1px solid var(--line);box-shadow:var(--glow);aspect-ratio:1000/1066;">
+              <img src="images/worker_smart_marking.png" alt="현장 수작업 마킹 작업자" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
           </div>
           <div class="process-path" role="list" aria-label="기존 수작업 마킹 흐름">
             <div class="process-step">
@@ -766,8 +770,8 @@
         <div class="content-frame" style="text-align: center; border-top: 1px dashed var(--line); padding-top: 56px;">
           <span class="eyebrow" style="color:var(--accent);">With CSCAM</span>
           <h3 class="h3" style="margin-bottom:18px; font-size: 28px;" data-i18n-text="{&quot;ko&quot;:&quot;데이터로 연결되는 스마트 마킹&quot;,&quot;en&quot;:&quot;Smart Marking Connected via Data&quot;}">데이터로 연결되는 스마트 마킹</h3>
-          <p class="section-sub copy-frame" style="margin-bottom:36px; word-break: keep-all;">
-            디자인 및 정보 운영부서와의 협업을 통해 도면 데이터를 마킹 데이터로 자동 변환하고, 실시간 마킹 상태 정보 확인부터 마킹 후 결과물 모니터링까지 이어지는 <strong data-i18n-text="{&quot;ko&quot;:&quot;전사적 관리의 시작&quot;,&quot;en&quot;:&quot;The Beginning of Enterprise-wide Management&quot;}">전사적 관리의 시작</strong>입니다.
+          <p class="section-sub copy-frame" style="margin-bottom:16px; word-break: keep-all;" data-i18n-html="{&quot;ko&quot;:&quot;설계 부서로부터 네트웍을 통해 받은 도면 데이터를 마킹 데이터로 자동 변환하고, 실시간 마킹 후 상태 정보 확인부터 마킹 후 결과물 모니터링까지 이어지는 <strong>&ldquo;스마트 조선소&rdquo;의 시작점</strong>입니다.&quot;,&quot;en&quot;:&quot;Design drawing data received from the engineering department is automatically converted into marking data, linking real-time marking status monitoring through to post-marking result verification — the starting point of a &ldquo;Smart Shipyard.&rdquo;&quot;}">
+            설계 부서로부터 네트웍을 통해 받은 도면 데이터를 마킹 데이터로 자동 변환하고, 실시간 마킹 후 상태 정보 확인부터 마킹 후 결과물 모니터링까지 이어지는 <strong>&ldquo;스마트 조선소&rdquo;의 시작점</strong>입니다.
           </p>
           <div class="smart-photo-grid">
             <figure>
@@ -783,8 +787,8 @@
               <figcaption>SMART MARKING RESULT 03 · ARcode 마킹 적용</figcaption>
             </figure>
             <figure>
-              <img src="images/smart_marking_result_04.png" alt="스마트 마킹 결과 4">
-              <figcaption>SMART MARKING RESULT 04 · QRcode 마킹 적용</figcaption>
+              <img src="images/smart_marking_result_04.jpg" alt="강재 소부재 QR 2D Matrix code 자동 마킹">
+              <figcaption>SMART MARKING RESULT 04 · 강재 소부재 QR &amp; 2D Matrix code 자동 마킹으로, 100% 추적 및 이력관리 가능</figcaption>
             </figure>
           </div>
         </div>
@@ -797,8 +801,8 @@
     <div class="container">
       <span class="eyebrow" style="color:var(--accent); text-align: center; display: block; margin-bottom: 8px;">Smart Data Workflow</span>
       <h3 class="h2" style="text-align: center; margin-bottom: 12px;" data-i18n-text="{&quot;ko&quot;:&quot;씨에스캠 CAD &amp; IMD 마킹 데이터 흐름&quot;,&quot;en&quot;:&quot;CSCAM CAD &amp; IMD Marking Data Flow&quot;}">씨에스캠 CAD &amp; IMD 마킹 데이터 흐름</h3>
-      <p class="section-sub copy-frame" style="text-align: center; max-width: 800px; margin: 0 auto 36px auto; word-break: keep-all;" data-i18n-text="{&quot;ko&quot;:&quot;설계 CAD 데이터에서 추출한 마킹 정보를 IMD 서버가 변환하고, 현장 PC와 제어 PC를 거쳐 마킹 장비가 그대로 실행합니다. 수기 전사 공정을 데이터 기반 자동 마킹 흐름으로 바꾸는 핵심 구조입니다.&quot;,&quot;en&quot;:&quot;Marking data extracted from CAD designs is converted by the IMD server, processed through site and control PCs, and directly executed by the marking machine. This is the core framework that replaces manual processes with data-driven workflows.&quot;}">
-        설계 CAD 데이터에서 추출한 마킹 정보를 IMD 서버가 변환하고, 현장 PC와 제어 PC를 거쳐 마킹 장비가 그대로 실행합니다. 수기 전사 공정을 데이터 기반 자동 마킹 흐름으로 바꾸는 핵심 구조입니다.
+      <p class="section-sub copy-frame" style="text-align: center; max-width: 800px; margin: 0 auto 36px auto; word-break: keep-all;" data-i18n-text="{&quot;ko&quot;:&quot;설계 CAD 데이터에서 추출한 마킹 정보를 IMD 서버에서 변환하고, 실시간 취득한 측정 데이터 정보를 반영하여, 최적의 마킹 상태를 유지합니다.&quot;,&quot;en&quot;:&quot;Marking data extracted from CAD designs is converted by the IMD server, with real-time measurement data reflected to maintain optimal marking conditions at all times.&quot;}">
+        설계 CAD 데이터에서 추출한 마킹 정보를 IMD 서버에서 변환하고, 실시간 취득한 측정 데이터 정보를 반영하여, 최적의 마킹 상태를 유지합니다.
       </p>
 
       <div class="smart-workflow-panel reveal">
@@ -889,7 +893,7 @@
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;도트(Dot) 사이즈&quot;,&quot;en&quot;:&quot;Dot Size&quot;}">도트(Dot) 사이즈</td>
-                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;0.282 mm (초미세 초정밀 제어)&quot;,&quot;en&quot;:&quot;0.282 mm (Ultra-fine Precision Control)&quot;}">0.282 mm (초미세 초정밀 제어)</td>
+                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;0.282 mm&quot;,&quot;en&quot;:&quot;0.282 mm&quot;}">0.282 mm</td>
                 <td data-i18n-text="{&quot;ko&quot;:&quot;2.0 mm / 4.0 mm (거친 도트 표기)&quot;,&quot;en&quot;:&quot;2.0 mm / 4.0 mm (Coarse Dot Marking)&quot;}">2.0 mm / 4.0 mm (거친 도트 표기)</td>
               </tr>
               <tr>
@@ -899,12 +903,12 @@
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;노즐 막힘 빈도&quot;,&quot;en&quot;:&quot;Nozzle Clogging Frequency&quot;}">노즐 막힘 빈도</td>
-                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;없음 (안정적인 헤드 유동 유지)&quot;,&quot;en&quot;:&quot;None (Maintains Stable Head Flow)&quot;}">없음 (안정적인 헤드 유동 유지)</td>
+                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;없음&quot;,&quot;en&quot;:&quot;None&quot;}">없음</td>
                 <td data-i18n-text="{&quot;ko&quot;:&quot;빈번함 (휘발 성분으로 인해 미사용 시 노즐 고착)&quot;,&quot;en&quot;:&quot;Frequent (Nozzle solidification from volatile content)&quot;}">빈번함 (휘발 성분으로 인해 미사용 시 노즐 고착)</td>
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;클리닝 솔벤트&quot;,&quot;en&quot;:&quot;Cleaning Solvent&quot;}">클리닝 솔벤트</td>
-                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;사용하지 않음 (폐액 발생 제로)&quot;,&quot;en&quot;:&quot;Not Used (Zero waste fluid generation)&quot;}">사용하지 않음 (폐액 발생 제로)</td>
+                <td class="highlight-col" data-i18n-text="{&quot;ko&quot;:&quot;사용하지 않음&quot;,&quot;en&quot;:&quot;Not Used&quot;}">사용하지 않음</td>
                 <td data-i18n-text="{&quot;ko&quot;:&quot;사용 필수 (주기적 솔벤트 세척 필요, 유지비 증가)&quot;,&quot;en&quot;:&quot;Required (Needs periodic solvent cleaning, increases maintenance cost)&quot;}">사용 필수 (주기적 솔벤트 세척 필요, 유지비 증가)</td>
               </tr>
               <tr>
@@ -932,7 +936,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
             </div>
             <h4 style="font-size:16px;font-weight:700;margin-bottom:10px;" data-i18n-text="{&quot;ko&quot;:&quot;초정밀 고선명 마킹&quot;,&quot;en&quot;:&quot;Ultra-Precision High-Contrast Marking&quot;}">초정밀 고선명 마킹</h4>
-            <p style="font-size:13.5px;color:var(--text-dim);line-height:1.6;" data-i18n-text="{&quot;ko&quot;:&quot;0.282mm 도트 사이즈의 미세 제어로 바코드, AR-CODE 및 20mm 이하 소문자까지 판독 불량 없이 선명하게 각인합니다.&quot;,&quot;en&quot;:&quot;Fine 0.282 mm dot control produces clear barcodes, AR-CODEs, and small characters under 20 mm without readability defects.&quot;}">0.282mm 도트 사이즈의 미세 제어로 바코드, AR-CODE 및 20mm 이하 소문자까지 판독 불량 없이 선명하게 각인합니다.</p>
+            <p style="font-size:13.5px;color:var(--text-dim);line-height:1.6;" data-i18n-text="{&quot;ko&quot;:&quot;0.282mm 도트 사이즈로 QR code, 2D Matrix code, AR-code 및 20mm 이하 소문자까지 판독 불량 없이 선명하게 마킹합니다.&quot;,&quot;en&quot;:&quot;0.282 mm dot size delivers clear QR codes, 2D Matrix codes, AR-codes, and characters under 20 mm without readability defects.&quot;}">0.282mm 도트 사이즈로 QR code, 2D Matrix code, AR-code 및 20mm 이하 소문자까지 판독 불량 없이 선명하게 마킹합니다.</p>
           </div>
           <div class="card hoverable" style="padding:28px;">
             <div style="width:40px;height:40px;border-radius:50%;background:var(--bg-deep);display:grid;place-items:center;color:var(--accent);margin-bottom:20px;">
@@ -978,16 +982,16 @@
           <table class="comparison-table" style="margin-bottom: 24px; font-size: 13px;">
             <tbody>
               <tr>
-                <td style="font-weight:600; width: 35%;" data-i18n-text="{&quot;ko&quot;:&quot;마킹 헤드 수&quot;,&quot;en&quot;:&quot;Number of Marking Heads&quot;}">마킹 헤드 수</td>
-                <td data-i18n-text="{&quot;ko&quot;:&quot;17세트 (피에조 노즐단 총 68개)&quot;,&quot;en&quot;:&quot;17 sets (68 piezo nozzle units total)&quot;}">17세트 (피에조 노즐단 총 68개)</td>
+                <td style="font-weight:600; width: 35%;" data-i18n-text="{&quot;ko&quot;:&quot;마킹 헤드 구성&quot;,&quot;en&quot;:&quot;Marking Head Configuration&quot;}">마킹 헤드 구성</td>
+                <td data-i18n-text="{&quot;ko&quot;:&quot;17세트 / 18세트&quot;,&quot;en&quot;:&quot;17 sets / 18 sets&quot;}">17세트 / 18세트</td>
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;유효 마킹폭&quot;,&quot;en&quot;:&quot;Valid Marking Width&quot;}">유효 마킹폭</td>
-                <td data-i18n-text="{&quot;ko&quot;:&quot;최대 5,000 mm&quot;,&quot;en&quot;:&quot;Max 5,000 mm&quot;}">최대 5,000 mm</td>
+                <td data-i18n-html="{&quot;ko&quot;:&quot;17세트 기준, 4,760mm<br>18세트 기준, 5,040mm&quot;,&quot;en&quot;:&quot;4,760mm (17 sets)<br>5,040mm (18 sets)&quot;}">17세트 기준, 4,760mm<br>18세트 기준, 5,040mm</td>
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;추천 활용처&quot;,&quot;en&quot;:&quot;Recommended Applications&quot;}">추천 활용처</td>
-                <td>강재 전처리 ID 마킹<br>절단/소부재 가이드라인 자동 각인</td>
+                <td data-i18n-text="{&quot;ko&quot;:&quot;강재 전처리 ID 마킹, 절단/소부재 정보 및 가이드라인 자동 마킹&quot;,&quot;en&quot;:&quot;Steel pretreatment ID marking, cutting/sub-member info and guideline auto marking&quot;}">강재 전처리 ID 마킹, 절단/소부재 정보 및 가이드라인 자동 마킹</td>
               </tr>
             </tbody>
           </table>
@@ -1020,7 +1024,7 @@
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;유효 마킹폭&quot;,&quot;en&quot;:&quot;Valid Marking Width&quot;}">유효 마킹폭</td>
-                <td data-i18n-text="{&quot;ko&quot;:&quot;최대 1,120 mm (협의 가능)&quot;,&quot;en&quot;:&quot;Max 1,120 mm (Negotiable)&quot;}">최대 1,120 mm (협의 가능)</td>
+                <td data-i18n-html="{&quot;ko&quot;:&quot;최대 1,120 mm<br>(협의 가능)&quot;,&quot;en&quot;:&quot;Max 1,120 mm<br>(Negotiable)&quot;}">최대 1,120 mm<br>(협의 가능)</td>
               </tr>
               <tr>
                 <td style="font-weight:600;" data-i18n-text="{&quot;ko&quot;:&quot;추천 활용처&quot;,&quot;en&quot;:&quot;Recommended Applications&quot;}">추천 활용처</td>
@@ -1045,7 +1049,7 @@
         <h4 class="spec-title" data-i18n-text="{&quot;ko&quot;:&quot;고정식 문자마킹 시스템 기본 제원&quot;,&quot;en&quot;:&quot;Stationary Marking System Specifications&quot;}">고정식 문자마킹 시스템 기본 제원</h4>
         <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;메인 공급 전원&quot;,&quot;en&quot;:&quot;Main Power Supply&quot;}">메인 공급 전원</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;220V 3상 50/60Hz, 50KVA&quot;,&quot;en&quot;:&quot;220V 3-phase 50/60Hz, 50KVA&quot;}">220V 3상 50/60Hz, 50KVA</span></div>
         <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;메인 공급 공압&quot;,&quot;en&quot;:&quot;Main Air Supply&quot;}">메인 공급 공압</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;Normal 5 ~ 6 bar 상시 공급&quot;,&quot;en&quot;:&quot;Normal 5-6 bar continuous supply&quot;}">Normal 5 ~ 6 bar 상시 공급</span></div>
-        <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;강재 대응 두께 범위&quot;,&quot;en&quot;:&quot;Supported Steel Thickness Range&quot;}">강재 대응 두께 범위</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;최소 6T ~ 최대 120T 중판/후판 대응&quot;,&quot;en&quot;:&quot;Compatible with 6T ~ 120T Medium/Thick Plates&quot;}">최소 6T ~ 최대 120T 중판/후판 대응</span></div>
+        <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;강재 대응 두께 범위&quot;,&quot;en&quot;:&quot;Supported Steel Thickness Range&quot;}">강재 대응 두께 범위</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;최소 6T ~ 최대 120T&quot;,&quot;en&quot;:&quot;6T ~ 120T&quot;}">최소 6T ~ 최대 120T</span></div>
         <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;마킹 엔진 헤드 구성&quot;,&quot;en&quot;:&quot;Marking Engine Head Configuration&quot;}">마킹 엔진 헤드 구성</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;헤드 1세트당 4개 피에조 마킹 엔진 탑재&quot;,&quot;en&quot;:&quot;4 Piezo Marking Engines per Head Set&quot;}">헤드 1세트당 4개 피에조 마킹 엔진 탑재</span></div>
         <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;헤드 1세트 유효 인쇄 폭&quot;,&quot;en&quot;:&quot;Print Width per Head Set&quot;}">헤드 1세트 유효 인쇄 폭</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;헤드당 최대 280mm 정밀 인쇄 폭&quot;,&quot;en&quot;:&quot;Max 280mm Precision Print Width per Head&quot;}">헤드당 최대 280mm 정밀 인쇄 폭</span></div>
         <div class="spec-row"><span class="label" data-i18n-text="{&quot;ko&quot;:&quot;위치 검출 및 계측&quot;,&quot;en&quot;:&quot;Position Detection &amp; Measurement&quot;}">위치 검출 및 계측</span><span class="value" data-i18n-text="{&quot;ko&quot;:&quot;근접 센서, 정밀 엔코더, 초음파 두께 측정 및 레이저 각도 센서 연동&quot;,&quot;en&quot;:&quot;Integrated proximity sensor, precision encoder, ultrasonic thickness measurement, and laser angle sensor&quot;}">근접 센서, 정밀 엔코더, 초음파 두께 측정 및 레이저 각도 센서 연동</span></div>
@@ -1054,7 +1058,7 @@
       <div id="stationary-results" class="section-results content-frame reveal">
         <div class="section-results-head">
           <h3 class="h3" data-i18n-text="{&quot;ko&quot;:&quot;고정식 시스템 현장 가동 및 야드 실증 결과&quot;,&quot;en&quot;:&quot;Stationary System Operation and Yard Demonstration Results&quot;}">고정식 시스템 현장 가동 및 야드 실증 결과</h3>
-          <p class="section-sub copy-frame" data-i18n-text="{&quot;ko&quot;:&quot;전처리 라인에서 자동 마킹된 강재의 현장 가동, 야드 식별성, 소형 문자 구현, 적치 후 유지력을 검증한 실제 결과입니다.&quot;,&quot;en&quot;:&quot;Actual results verifying the onsite operation, yard visibility, small character implementation, and paint adhesion after stacking of automatically marked steel on the pretreatment line.&quot;}">전처리 라인에서 자동 마킹된 강재의 현장 가동, 야드 식별성, 소형 문자 구현, 적치 후 유지력을 검증한 실제 결과입니다.</p>
+          <p class="section-sub copy-frame" data-i18n-text="{&quot;ko&quot;:&quot;전처리 라인에서 자동 마킹된 강재의 현장 이동, 야드 식별성, 소형 문자 구현, 적치 후 유지력을 검증한 결과입니다.&quot;,&quot;en&quot;:&quot;Results verifying yard mobility, field visibility, small character marking, and paint adhesion after stacking of automatically marked steel on the pretreatment line.&quot;}">전처리 라인에서 자동 마킹된 강재의 현장 이동, 야드 식별성, 소형 문자 구현, 적치 후 유지력을 검증한 결과입니다.</p>
         </div>
         <div class="section-results-grid">
           <article class="result-card">
@@ -1122,15 +1126,15 @@
         <ul class="mobile-features-grid">
           <li style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--line-soft);">
             <span style="color:var(--accent); font-weight: bold; display: block; margin-bottom: 8px; font-size: 15px;" data-i18n-text="{&quot;ko&quot;:&quot;✔ 대면적 자동 주행 제어&quot;,&quot;en&quot;:&quot;Automatic large-area travel control&quot;}">✔ 대면적 자동 주행 제어</span>
-            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;야드 크기에 맞춰 설계된 레일식 갠트리 프레임 위에서 5축 서보 구동을 통한 광역 스캔 제어&quot;,&quot;en&quot;:&quot;Wide-area scan control through 5-axis servo drive on a rail-type gantry frame designed to fit the yard size&quot;}">야드 크기에 맞춰 설계된 레일식 갠트리 프레임 위에서 5축 서보 구동을 통한 광역 스캔 제어</span>
+            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;야드 크기에 맞춰 설계된 레일식 갠트리 프레임 위에서 4축 서보 구동을 통한 동기 제어&quot;,&quot;en&quot;:&quot;Synchronized control via 4-axis servo drive on a rail-type gantry frame designed to fit the yard size&quot;}">야드 크기에 맞춰 설계된 레일식 갠트리 프레임 위에서 4축 서보 구동을 통한 동기 제어</span>
           </li>
           <li style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--line-soft);">
             <span style="color:var(--accent); font-weight: bold; display: block; margin-bottom: 8px; font-size: 15px;" data-i18n-text="{&quot;ko&quot;:&quot;✔ 복합 라인 &amp; 문자 인쇄&quot;,&quot;en&quot;:&quot;Combined line and character printing&quot;}">✔ 복합 라인 &amp; 문자 인쇄</span>
-            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;두께감 있는 유도 라인 마킹 모듈과 고해상도 정보 문자 피에조 헤드 복합 제어&quot;,&quot;en&quot;:&quot;Integrated control of thick guide line marking modules and high-resolution informational text piezo heads&quot;}">두께감 있는 유도 라인 마킹 모듈과 고해상도 정보 문자 피에조 헤드 복합 제어</span>
+            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;론지 라인 등 정확한 라인 마킹과 정보 마킹, 마킹 헤드 보호를 위한 강력한 특수 회피 기동제어&quot;,&quot;en&quot;:&quot;Precise line and information marking including longi lines, with powerful special evasion control to protect the marking head&quot;}">론지 라인 등 정확한 라인 마킹과 정보 마킹, 마킹 헤드 보호를 위한 강력한 특수 회피 기동제어</span>
           </li>
           <li style="background: rgba(255,255,255,0.02); padding: 20px; border-radius: 8px; border: 1px solid var(--line-soft);">
             <span style="color:var(--accent); font-weight: bold; display: block; margin-bottom: 8px; font-size: 15px;" data-i18n-text="{&quot;ko&quot;:&quot;✔ 지능형 스마트 코드 지원&quot;,&quot;en&quot;:&quot;Smart code support&quot;}">✔ 지능형 스마트 코드 지원</span>
-            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;삼성중공업 판넬라인 등에서 공인 테스트를 마친 AR-CODE / QR-CODE 마킹 검증 완료&quot;,&quot;en&quot;:&quot;Verified AR-CODE / QR-CODE marking that has completed official tests on Samsung Heavy Industries panel lines, etc.&quot;}">삼성중공업 판넬라인 등에서 공인 테스트를 마친 AR-CODE / QR-CODE 마킹 검증 완료</span>
+            <span style="font-size: 13px; color: var(--text-dim); line-height: 1.5; display: block;" data-i18n-text="{&quot;ko&quot;:&quot;QR-code, 2D Matrix code 마킹 지원&quot;,&quot;en&quot;:&quot;QR-code and 2D Matrix code marking supported&quot;}">QR-code, 2D Matrix code 마킹 지원</span>
           </li>
         </ul>
         
@@ -1366,91 +1370,91 @@
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2025년&quot;,&quot;en&quot;:&quot;2025&quot;}">2025년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;중국 한화해양공정(산동)유한공사&quot;,&quot;en&quot;:&quot;China Hanwha Ocean Marine Engineering (Shandong) Co., Ltd.&quot;}">중국 한화해양공정(산동)유한공사</strong> 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2025년&quot;,&quot;en&quot;:&quot;2025&quot;}">2025년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;삼성중공업&quot;,&quot;en&quot;:&quot;Samsung Heavy Industries&quot;}">삼성중공업</strong> 판넬라인</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;주판 라인마킹 &amp; 라벨링 이동식 마킹기&quot;,&quot;en&quot;:&quot;Plate Line Marking &amp; Labeling Mobile Marking Machine&quot;}">주판 라인마킹 &amp; 라벨링 이동식 마킹기</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;판넬조립 스마트 라인 주행 운용 중&quot;,&quot;en&quot;:&quot;Panel Assembly Smart Line Travel Operation in Progress&quot;}">판넬조립 스마트 라인 주행 운용 중</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2024년&quot;,&quot;en&quot;:&quot;2024&quot;}">2024년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;사우디 아람코 IMI 조선소&quot;,&quot;en&quot;:&quot;Saudi Aramco IMI Shipyard&quot;}">사우디 아람코 IMI 조선소</strong> 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;현지 야드 설치 및 최종 양산 테스트 완료&quot;,&quot;en&quot;:&quot;Local Yard Installation &amp; Final Mass Production Testing Completed&quot;}">현지 야드 설치 및 최종 양산 테스트 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2024년&quot;,&quot;en&quot;:&quot;2024&quot;}">2024년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;사우디 아람코 IMI 조선소&quot;,&quot;en&quot;:&quot;Saudi Aramco IMI Shipyard&quot;}">사우디 아람코 IMI 조선소</strong> 2호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;현지 야드 설치 및 최종 양산 테스트 완료&quot;,&quot;en&quot;:&quot;Local Yard Installation &amp; Final Mass Production Testing Completed&quot;}">현지 야드 설치 및 최종 양산 테스트 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2023년&quot;,&quot;en&quot;:&quot;2023&quot;}">2023년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries&quot;}">현대중공업</strong> 1야드 4호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2022년&quot;,&quot;en&quot;:&quot;2022&quot;}">2022년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업 군산조선소&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries Gunsan Shipyard&quot;}">현대중공업 군산조선소</strong> 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;군산 재가동 생산 라인 배치 가동&quot;,&quot;en&quot;:&quot;Operating on the restarted Gunsan production line&quot;}">군산 재가동 생산 라인 배치 가동</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2022년&quot;,&quot;en&quot;:&quot;2022&quot;}">2022년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업 군산조선소&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries Gunsan Shipyard&quot;}">현대중공업 군산조선소</strong> 2호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;군산 재가동 생산 라인 배치 가동&quot;,&quot;en&quot;:&quot;Operating on the restarted Gunsan production line&quot;}">군산 재가동 생산 라인 배치 가동</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2022년&quot;,&quot;en&quot;:&quot;2022&quot;}">2022년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries&quot;}">현대중공업</strong> 2야드 2호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 ID 마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment ID Marking Machine Set&quot;}">고해상도 전처리 ID 마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;중앙 ID 특화 마킹기 운용 중&quot;,&quot;en&quot;:&quot;Central ID Specialized Marking Machine in Operation&quot;}">중앙 ID 특화 마킹기 운용 중</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2021년&quot;,&quot;en&quot;:&quot;2021&quot;}">2021년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries&quot;}">현대중공업</strong> 1야드 3호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2021년&quot;,&quot;en&quot;:&quot;2021&quot;}">2021년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;삼성중공업&quot;,&quot;en&quot;:&quot;Samsung Heavy Industries&quot;}">삼성중공업</strong> 4호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2019년&quot;,&quot;en&quot;:&quot;2019&quot;}">2019년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;삼성중공업&quot;,&quot;en&quot;:&quot;Samsung Heavy Industries&quot;}">삼성중공업</strong> 3호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2018년&quot;,&quot;en&quot;:&quot;2018&quot;}">2018년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries&quot;}">현대중공업</strong> 2야드 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2016년&quot;,&quot;en&quot;:&quot;2016&quot;}">2016년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대중공업&quot;,&quot;en&quot;:&quot;Hyundai Heavy Industries&quot;}">현대중공업</strong> 1야드 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2012년&quot;,&quot;en&quot;:&quot;2012&quot;}">2012년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대삼호중공업&quot;,&quot;en&quot;:&quot;Hyundai Samho Heavy Industries&quot;}">현대삼호중공업</strong> 2호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
             <tr>
               <td style="font-family:var(--ff-mono);" data-i18n-text="{&quot;ko&quot;:&quot;2012년&quot;,&quot;en&quot;:&quot;2012&quot;}">2012년</td>
               <td><strong data-i18n-text="{&quot;ko&quot;:&quot;현대삼호중공업&quot;,&quot;en&quot;:&quot;Hyundai Samho Heavy Industries&quot;}">현대삼호중공업</strong> 1호기</td>
               <td data-i18n-text="{&quot;ko&quot;:&quot;고해상도 전처리 문자마킹기 SET&quot;,&quot;en&quot;:&quot;High-Resolution Pretreatment Character Marking Machine Set&quot;}">고해상도 전처리 문자마킹기 SET</td>
-              <td data-i18n-text="{&quot;ko&quot;:&quot;정상 상용 가동 완료&quot;,&quot;en&quot;:&quot;Normal Commercial Operation Completed&quot;}">정상 상용 가동 완료</td>
+              <td data-i18n-text="{&quot;ko&quot;:&quot;완료&quot;,&quot;en&quot;:&quot;Completed&quot;}">완료</td>
             </tr>
           </tbody>
         </table>
@@ -1595,7 +1599,7 @@
               <img src="images/stationary_04.png" alt="사우디 IMI 고정식 문자마킹 시스템 설치 1">
               <img src="images/stationary_05.png" alt="사우디 IMI 고정식 문자마킹 시스템 설치 2">
             </div>
-            <div class="install-case-caption" data-i18n-text="{&quot;ko&quot;:&quot;사우디 아람코 IMI 조선소 - 고해상도 전체 마킹기 및 ID 마킹기 가동 현장&quot;,&quot;en&quot;:&quot;Saudi Aramco IMI Shipyard - High-Resolution Full Surface &amp; Central ID Marking System Operation&quot;}">사우디 아람코 IMI 조선소 - 고해상도 전체 마킹기 및 ID 마킹기 가동 현장</div>
+            <div class="install-case-caption" data-i18n-text="{&quot;ko&quot;:&quot;사우디 아람코 IMI 조선소 - 고해상도 전체 마킹기 가동 현장&quot;,&quot;en&quot;:&quot;Saudi Aramco IMI Shipyard - High-Resolution Full Surface Marking System Operation&quot;}">사우디 아람코 IMI 조선소 - 고해상도 전체 마킹기 가동 현장</div>
           </article>
 
           <article class="install-case-card">
@@ -1628,7 +1632,7 @@
             씨에스캠의 고해상도 문자마킹장비는 선박 건조 전처리 라인의 생산 효율을 획기적으로 향상시킵니다. 장비 도입 단가, 헤드 개조 사양, 유틸리티 구축 등에 관해 영업 엔지니어가 상세히 안내해 드립니다.
           </p>
           <div style="font-size:15px;color:var(--text-dim);">
-            <div style="margin-bottom:12px;"><strong data-i18n-text="{&quot;ko&quot;:&quot;본사 및 마킹 기술본부 주소&quot;,&quot;en&quot;:&quot;HQ &amp; Marking Tech Center Address&quot;}">본사 및 마킹 기술본부 주소</strong></div>
+            <div style="margin-bottom:12px;"><strong data-i18n-text="{&quot;ko&quot;:&quot;본사 주소&quot;,&quot;en&quot;:&quot;HQ &amp; Marking Tech Center Address&quot;}">본사 주소</strong></div>
             <p style="font-family:var(--ff-mono);margin-bottom:20px;" data-i18n-text="{&quot;ko&quot;:&quot;전남광주특별시 광산구 평동산단로 239-15 (옥동)&quot;,&quot;en&quot;:&quot;239-15, Pyeongdongsandan-ro, Gwangsan-gu, Gwangju, Korea&quot;}">전남광주특별시 광산구 평동산단로 239-15 (옥동)</p>
             <div><strong data-i18n-text="{&quot;ko&quot;:&quot;기술영업 대표전화&quot;,&quot;en&quot;:&quot;Technical Sales Phone&quot;}">기술영업 대표전화</strong></div>
             <p style="font-size:22px;font-weight:700;color:var(--cscam-blue);font-family:var(--ff-mono);margin-bottom:20px;">062-946-1900</p>
