@@ -120,19 +120,35 @@
     }
 
     /* hero */
-    #hero { min-height: 92vh; padding-top: calc(100px + 56px); padding-bottom: 56px; display: flex; align-items: center; position: relative; overflow:hidden; background: #0c1f14; color: #fff; }
+    #hero { height: 815px; padding-top: 60px; padding-bottom: 32px; display: flex; align-items: center; position: relative; overflow:hidden; background: #0c1f14; color: #fff; }
     .hero-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
     .hero-poster-hold { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 1; animation: heroPosterOut .5s ease 1s forwards; pointer-events: none; }
     @keyframes heroPosterOut { to { opacity: 0; } }
     .hero-bg-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(12, 31, 20, 0.62), rgba(12, 31, 20, 0.62)); z-index: 1; }
     .hero-grid { width: 100%; display: grid; grid-template-columns: 1fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
     .hero-content { z-index: 2; position: relative; max-width: 760px; }
-    .hero-kicker { padding: 6px 14px; border: 1px solid rgba(0,195,87,.38); background: rgba(12,31,20,.46); border-radius: 999px; backdrop-filter: blur(4px); color: var(--accent) !important; font-size: 13.5px; letter-spacing: .18em; }
-    .hero-title { font-family: var(--ff-head); font-weight: 800; font-size: clamp(32px, 5vw, 54px); line-height: 1.1; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-kicker { padding: 6px 14px; border: 1px solid rgba(0,195,87,.38); background: rgba(12,31,20,.46); border-radius: 999px; backdrop-filter: blur(4px); color: var(--accent) !important; font-size: 11px; letter-spacing: .2em; }
+    .hero-model-kicker { font-family: var(--ff-head); font-style: italic; font-weight: 600; font-size: clamp(16px, 3vw, 22px); color: var(--accent); margin-bottom: 10px; }
+    .hero-title { font-family: var(--ff-head); font-weight: 700; font-size: clamp(26px, 4.6vw, 50px); line-height: 1.2; letter-spacing: -.02em; margin-bottom: 24px; }
     .hero-title span { color: var(--accent); }
     .hero-title .hero-title-line { display: inline-block; font-size: clamp(16px, 4.1vw, 42px); white-space: nowrap; }
-    .hero-desc { color: var(--on-dark-dim); font-size: clamp(15px, 2vw, 17px); line-height: 1.7; margin: 0 0 36px; max-width: 620px; }
+    .hero-desc { color: var(--on-dark-dim); font-size: 15px; line-height: 1.75; margin: 0 0 22px; max-width: 620px; }
     .hero-links { display: flex; gap: 14px; }
+    .hero-clients { margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); position: relative; z-index: 2; }
+    .hero-clients-label { font-family: var(--ff-mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .client-marquee-wrap { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+    .client-marquee-track { display: flex; align-items: stretch; gap: 16px; width: max-content; animation: client-marquee 34s linear infinite; }
+    .client-marquee-wrap:hover .client-marquee-track { animation-play-state: paused; }
+    .client-logo-card { flex: 0 0 auto; width: 148px; height: 58px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1px solid rgba(255,255,255,.12); border-radius: 6px; padding: 7px 14px; }
+    .client-logo-card img { max-width: 100%; max-height: 40px; width: auto; height: auto; object-fit: contain; display: block; }
+    @keyframes client-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .client-marquee-track { animation: none; } }
+    .hero-shortcut-links { display: flex; flex-direction: column; gap: 10px; max-width: 480px; margin-top: 16px; }
+    .hero-shortcut-link { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border-radius: 8px; border: 1px solid rgba(0,195,87,.4); background: rgba(0,195,87,.08); transition: all .2s ease; }
+    .hero-shortcut-link:hover { border-color: var(--accent); background: rgba(0,195,87,.18); transform: translateX(4px); }
+    .hero-shortcut-link .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; background: var(--accent); }
+    .hero-shortcut-link b { display: block; font-family: var(--ff-head); font-weight: 700; font-size: 15px; color: #fff; }
+    .hero-shortcut-link small { display: block; font-family: var(--ff-mono); font-size: 10.5px; color: #b8e6c8; letter-spacing: .03em; margin-top: 2px; }
     .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 28px; font-size: 14.5px; font-weight: 700; border-radius: 6px; transition: all .2s; }
     .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 4px 20px rgba(0,195,87,.3); }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
@@ -140,7 +156,7 @@
     .btn-secondary:hover { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.4); }
     @media (min-width: 961px) {
       #hero { align-items: flex-start; }
-      #hero .hero-grid { margin-top: 53px; }
+      #hero .hero-grid { margin-top: 0; }
     }
 
     /* mockup visual */
@@ -635,6 +651,7 @@
   </div>
 </div>
 
+<div style="height:100px;width:100%;"></div>
 <main>
   <!-- HERO -->
   <section id="hero">
@@ -658,11 +675,45 @@
     <div class="container hero-grid">
       <div class="hero-content hero-fadein">
         <span class="eyebrow hero-kicker" data-i18n-text="{&quot;ko&quot;:&quot;스마트 조선소 구현의 시작&quot;,&quot;en&quot;:&quot;The Starting Point for Smart Shipyard Implementation&quot;}">스마트 조선소 구현의 시작</span>
+        <div class="hero-model-kicker" data-i18n-text="{&quot;ko&quot;:&quot;SP-HRMM&quot;,&quot;en&quot;:&quot;SP-HRMM&quot;}">SP-HRMM</div>
         <h1 class="hero-title" style="margin-bottom:20px; line-height:1.2;" data-i18n-html="{&quot;ko&quot;:&quot;조선소 전처리 라인을 위한<br><span class='hero-title-line'>고해상도 문자·2D Matrix Code 마킹 시스템</span>&quot;,&quot;en&quot;:&quot;High-Resolution Character &amp; 2D Matrix Code Marking System<br><span class='hero-title-line'>for Shipyard Pretreatment Lines</span>&quot;}">조선소 전처리 라인을 위한<br><span class="hero-title-line">고해상도 문자·2D Matrix Code 마킹 시스템</span></h1>
         <p class="hero-desc copy-frame" data-i18n-text="{&quot;ko&quot;:&quot;설계 도면 데이터를 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 출발점입니다.&quot;,&quot;en&quot;:&quot;Design drawing data is marked directly on steel surfaces in real time, connecting pretreatment identification, tracking, and quality control into a single data flow. This is the starting point for field datafication in shipyard DX/AX implementation.&quot;}">설계 도면 데이터를 강재 표면에 실시간으로 마킹하고, 전처리 공정의 식별·추적·품질 관리를 하나의 데이터 흐름으로 연결합니다. 조선소 DX/AX 구현을 위한 현장 데이터화의 출발점입니다.</p>
-        <div class="hero-links">
+        <div class="hero-shortcut-links">
+          <a href="#stationary" class="hero-shortcut-link">
+            <span class="dot"></span>
+            <div>
+              <b data-i18n-text="{&quot;ko&quot;:&quot;고해상도 고정식 문자마킹 시스템&quot;,&quot;en&quot;:&quot;High-Resolution Stationary Character Marking System&quot;}">고해상도 고정식 문자마킹 시스템</b>
+              <small data-i18n-text="{&quot;ko&quot;:&quot;고정식마킹기 자세히 보기&quot;,&quot;en&quot;:&quot;Learn more about Stationary Marking Machine&quot;}">고정식마킹기 자세히 보기</small>
+            </div>
+          </a>
+          <a href="#mobile" class="hero-shortcut-link">
+            <span class="dot"></span>
+            <div>
+              <b data-i18n-text="{&quot;ko&quot;:&quot;판넬 이동형 마킹기&quot;,&quot;en&quot;:&quot;Panel Mobile Marking Machine&quot;}">판넬 이동형 마킹기</b>
+              <small data-i18n-text="{&quot;ko&quot;:&quot;이동식마킹기 자세히 보기&quot;,&quot;en&quot;:&quot;Learn more about Mobile Panel Marking Machine&quot;}">이동식마킹기 자세히 보기</small>
+            </div>
+          </a>
+        </div>
+        <div class="hero-links" style="margin-top:16px;">
           <a href="#contact" class="btn btn-primary" data-i18n-text="{&quot;ko&quot;:&quot;도입상담신청&quot;,&quot;en&quot;:&quot;Request Consultation&quot;}">도입상담신청</a>
           <a href="#contact" class="btn btn-secondary" data-i18n-text="{&quot;ko&quot;:&quot;카탈로그 문의&quot;,&quot;en&quot;:&quot;Catalog Inquiry&quot;}">카탈로그 문의</a>
+        </div>
+        <div class="hero-clients">
+          <div class="hero-clients-label" data-i18n-text="{&quot;ko&quot;:&quot;주요 고객사&quot;,&quot;en&quot;:&quot;KEY CUSTOMERS&quot;}">주요 고객사</div>
+          <div class="client-marquee-wrap">
+            <div class="client-marquee-track">
+              <div class="client-logo-card"><img alt="HD" src="images/clients/hd.png"></div>
+              <div class="client-logo-card"><img alt="HD Hyundai Samho" src="images/clients/hd-hyundai-samho.png"></div>
+              <div class="client-logo-card"><img alt="삼성중공업" src="images/clients/samsung-heavy.png"></div>
+              <div class="client-logo-card"><img alt="Hanwha Ocean Shandong" src="images/clients/hanwha-ocean-shandong.png"></div>
+              <div class="client-logo-card"><img alt="International Maritime Industries" src="images/clients/imi.png"></div>
+              <div class="client-logo-card" aria-hidden="true"><img alt="" src="images/clients/hd.png"></div>
+              <div class="client-logo-card" aria-hidden="true"><img alt="" src="images/clients/hd-hyundai-samho.png"></div>
+              <div class="client-logo-card" aria-hidden="true"><img alt="" src="images/clients/samsung-heavy.png"></div>
+              <div class="client-logo-card" aria-hidden="true"><img alt="" src="images/clients/hanwha-ocean-shandong.png"></div>
+              <div class="client-logo-card" aria-hidden="true"><img alt="" src="images/clients/imi.png"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
