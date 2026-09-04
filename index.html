@@ -134,7 +134,7 @@
     .hero-title .hero-title-line { display: inline-block; font-size: clamp(16px, 4.1vw, 42px); white-space: nowrap; }
     .hero-desc { color: var(--on-dark-dim); font-size: 15px; line-height: 1.75; margin: 0 0 22px; max-width: 620px; }
     .hero-links { display: flex; gap: 14px; }
-    .hero-clients { margin-top: 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.12); position: relative; z-index: 2; }
+    .hero-clients { margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.12); position: relative; z-index: 2; }
     .hero-clients-label { font-family: var(--ff-mono); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
     .client-marquee-wrap { position: relative; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
     .client-marquee-track { display: flex; align-items: stretch; gap: 16px; width: max-content; animation: client-marquee 34s linear infinite; }
@@ -2068,30 +2068,31 @@ function cscamApplyFamilyLinks() {
   const isLocal = location.protocol === "file:";
   const isGhPages = location.hostname === "cih2000.github.io";
   const GH = "https://cih2000.github.io";
-  const withLang = (url) => {
-    if (window.LANG !== "en" || url.charAt(0) === "#") return url;
-    return url + (url.includes("?") ? "&" : "?") + "lang=en";
-  };
+  const en = window.LANG === "en";
+  // Targets with a dedicated /en/ folder (separate page per language).
+  const folderUrl = (local, prod) => isLocal ? ("../" + local + "/" + (en ? "en/index.html" : "index.html")) : isGhPages ? (GH + "/" + local + "/" + (en ? "en/index.html" : "index.html")) : ("https://" + prod + "/" + (en ? "en/index.html" : ""));
+  // Targets that use a ?lang=en query on a single page.
+  const queryUrl = (local, prod) => isLocal ? ("../" + local + "/index.html" + (en ? "?lang=en" : "")) : isGhPages ? (GH + "/" + local + "/index.html" + (en ? "?lang=en" : "")) : ("https://" + prod + "/" + (en ? "?lang=en" : ""));
   const familyLinks = document.querySelectorAll(".family-bar-nav a, .drawer a");
   familyLinks.forEach(link => {
     const text = link.textContent.trim().toUpperCase();
     if (text.includes("CNC")) {
-      link.href = withLang(isLocal ? "../cscam-cnc/index.html" : isGhPages ? GH + "/cscam-cnc/index.html" : "https://cnc.cscam.co.kr/");
+      link.href = folderUrl("cscam-cnc", "cnc.cscam.co.kr");
     } else if (text.includes("LMS")) {
-      link.href = withLang(isLocal ? "../cscam-lms/index.html" : isGhPages ? GH + "/cscam-lms/index.html" : "https://lms.cscam.co.kr/");
+      link.href = folderUrl("cscam-lms", "lms.cscam.co.kr");
     } else if (text.includes("3D PRINTER")) {
-      link.href = withLang(isLocal ? "../cscam-3dp/index.html" : isGhPages ? GH + "/cscam-3dp/index.html" : "https://3dp.cscam.co.kr/");
+      link.href = queryUrl("cscam-3dp", "3dp.cscam.co.kr");
     } else if (text.includes("LASER") || text.includes("TEXTURING") || text.includes("ENGRAVING")) {
-      link.href = withLang(isLocal ? "../cscam-engraving/index.html" : isGhPages ? GH + "/cscam-engraving/index.html" : "https://laser.cscam.co.kr/");
+      link.href = queryUrl("cscam-engraving", "laser.cscam.co.kr");
     } else if (text.includes("MARKING")) {
       link.href = "#hero";
     } else if (text.includes("SOFTWARE")) {
-      link.href = withLang(isLocal ? "../cscam-sw/index.html" : isGhPages ? GH + "/cscam-sw/index.html" : "https://sw.cscam.co.kr/");
+      link.href = queryUrl("cscam-sw", "sw.cscam.co.kr");
     }
   });
   const logoLinks = document.querySelectorAll(".brand-logo-link");
   logoLinks.forEach(link => {
-    link.href = withLang(isLocal ? "../cscam-hub/index.html" : isGhPages ? GH + "/cscam-hub/index.html" : "https://cscam.co.kr/");
+    link.href = folderUrl("cscam-hub", "cscam.co.kr");
   });
 }
 if (document.readyState === "loading") {
