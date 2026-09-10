@@ -97,7 +97,9 @@
     .desktop-nav a.cta-link { font-weight: 700; color: var(--accent); }
     .header-utility { display: flex; align-items: center; gap: 10px; }
     .brand-wordmark { display: flex; align-items: baseline; font-family: Verdana, 'Noto Sans KR', sans-serif; font-size: 23px; color: #1e5aa8; }
-    .lang-switch { display: flex; gap: 6px; align-items: center; color: #757575; font-size: 11px; font-family: 'JetBrains Mono', monospace; letter-spacing: .1em; }
+    .lang-switch { display: flex; gap: 6px; align-items: center; color: #757575; font-size: 12.5px; font-weight: 700; letter-spacing: .02em; }
+    .lang-btn { color: #757575; }
+    .lang-btn.active { color: #1e5aa8; }
     .nav-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 9px 16px; font-size: 13px; font-weight: 800; border-radius: 5px; transition: background .2s, border-color .2s, color .2s; white-space: nowrap; }
     .nav-cta.primary { background: var(--accent); color: #fff; box-shadow: var(--glow); }
     .nav-cta.primary:hover { background: var(--accent-hover); }
@@ -2109,6 +2111,11 @@ if (document.readyState === "loading") {
   cscamApplyFamilyLinks();
 }
 window.addEventListener("load", cscamApplyFamilyLinks);
+</script>
+<script>
+document.querySelectorAll('.lang-btn').forEach(function (btn) {
+  btn.classList.toggle('active', btn.getAttribute('data-lang') === (window.LANG || 'ko'));
+});
 </script>
 <script>
 (function(){
