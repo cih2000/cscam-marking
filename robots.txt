@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /proposal.html
+Allow: /
+
+Sitemap: https://marking.cscam.co.kr/sitemap.xml
